@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>First game with JS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<header class="row">
+			<div class="col-xs-12 col-sm-8 col-md-8">
+				<h1>Kamień, papier i nożyce</h1>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<button class="btn btn-success" onclick="newGame()">New Game</button>
+			</div>
+		</header>
+		<div class="container row">
+			<button class="btn btn-default pick-button col-xs-4 col-sm-4 col-md-4" onclick="playerPick('rock')">Rock
+				<i class="fa fa-hand-rock-o" aria-hidden="true"></i>
+			</button>
+			<button class="btn btn-default pick-button col-xs-4 col-sm-4 col-md-4" onclick="playerPick('paper')">Paper
+				<i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+			</button>
+			<button class="btn btn-default pick-button col-xs-4 col-sm-4 col-md-4" onclick="playerPick('scissors')">Scissors
+				<i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
+			</button>
+		</div>
+		<div class="container row">
+			<div class="score">
+				<h2 class="text-center">Current round:</h2>
+				<div>
+					<p>Computer chose: <span id="computerPick"></span></p>
+					<p>Player chose: <span id="playerPick"></span></p>
+					<p>Result: <span id="gameResult"></span></p>
+				</div>
+			</div>
+			<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th colspan="2" class="text-center">Game results</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th id="playerName">Player</th>
+					<th>Computer</th>
+				</tr>
+				<tr>
+					<td id="playerScore">0</td>
+					<td id="computerScore">0</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+		<footer>
+			
+		</footer>
+	</div>
+	<script type="text/javascript" src="js/game.js"></script>
+</body>
+</html>
