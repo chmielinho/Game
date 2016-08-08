@@ -1,14 +1,22 @@
 var computer = {
-	name: 'computer'
-	, score: 0
-	, pick: ''
+	name: 'computer',
+	score: 0,
+	pick: ''
 };
+
 var player = {
-	name: ''
-	, score: 0
-	, pick: ''
+	name: '',
+	score: 0,
+	pick: ''
 };
-var round = 0
+
+var round = 0;
+var buttons = document.getElementsByClassName("pick-button");
+
+// Fix all display block with this rule
+var displayBlocks = {
+	playerName:document.getElementById('playerName')
+};
 
 function newGame() {
 	computer.score = 0;
@@ -16,23 +24,19 @@ function newGame() {
 	player.score = 0;
 	player.pick = "";
 	round = 0;
+
 	player.name = prompt("Jak się nazywasz?", "Jan Kowalski");
-	if (player.name == null || player.name == '') {
+	if (player.name === null || player.name === '') {
 		player.name = 'Player';
 	}
-	document.getElementById("playerName").innerHTML = player.name;
+
+	displayBlocks.playerName.innerHTML = player.name;
 	document.getElementById("playerScore").innerHTML = player.score;
 	document.getElementById("computerScore").innerHTML = computer.score;
-	var buttons = document.getElementsByClassName("pick-button");
+
 	for (var i = 0; i < buttons.length; i++) {
 		buttons[i].style.visibility = 'visible';
-	};
-}
-
-function playerPick(pick) {
-	player.pick = pick;
-	computerPick();
-	checkResult();
+	}
 }
 
 function computerPick() {
@@ -52,47 +56,49 @@ function computerPick() {
 function checkResult() {
 	var gameResult;
 	if (player.pick === computer.pick) {
-		gameResult = "tie!"
+		gameResult = "tie!";
 	}
 	else if (player.pick === "rock") {
 		if (computer.pick === "scissors") {
 			player.score++;
 			document.getElementById("playerScore").innerHTML = player.score;
-			gameResult = "Player wins!"
+			gameResult = "Player wins!";
 		}
 		else if (computer.pick === "paper") {
 			computer.score++;
 			document.getElementById("computerScore").innerHTML = computer.score;
-			gameResult = "Computer wins!"
+			gameResult = "Computer wins!";
 		}
 	}
 	else if (player.pick === "paper") {
 		if (computer.pick === "rock") {
 			player.score++;
 			document.getElementById("playerScore").innerHTML = player.score;
-			gameResult = "Player wins!"
+			gameResult = "Player wins!";
 		}
 		else if (computer.pick === "scissors") {
 			computer.score++;
 			document.getElementById("computerScore").innerHTML = computer.score;
-			gameResult = "Computer wins!"
+			gameResult = "Computer wins!";
 		}
 	}
 	else if (player.pick === "scissors") {
 		if (computer.pick === "paper") {
 			player.score++;
 			document.getElementById("playerScore").innerHTML = player.score;
-			gameResult = "Player wins!"
+			gameResult = "Player wins!";
 		}
 		else if (computer.pick === "rock") {
 			computer.score++;
 			document.getElementById("computerScore").innerHTML = computer.score;
-			gameResult = "Computer wins!"
+			gameResult = "Computer wins!";
 		}
 	}
+
 	document.getElementById("computerPick").innerHTML = computer.pick;
 	document.getElementById("playerPick").innerHTML = player.pick;
 	document.getElementById("gameResult").innerHTML = gameResult;
+
 	if ((player.score >= 10) || (computer.score >= 10)) {
 		if (player.score > computer.score) {
 			alert("\nPlayer wins the game!\n");
@@ -100,9 +106,16 @@ function checkResult() {
 		else {
 			alert("\nComputer wins the game!\n");
 		}
-		var buttons = document.getElementsByClassName("pick-button");
+
 		for (var i = 0; i < buttons.length; i++) {
 			buttons[i].style.visibility = 'hidden';
-		};
+		}
 	}
+}
+
+
+function playerPick(pick) {
+	player.pick = pick;
+	computerPick();
+	checkResult();
 }
