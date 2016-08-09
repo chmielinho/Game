@@ -1,0 +1,34 @@
+.container header.row .col-md-4 {
+  text-align: right; }
+  .container header.row .col-md-4 button {
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    font-size: 18px; }
+
+.container button {
+  height: 100px; }
+
+.container div.container h2 {
+  margin: 10px 0 5px 0; }
+
+.container div.container p {
+  margin: 2px 0; }
+
+.container table {
+  margin: 10px 0; }
+  .container table tbody tr :first-child {
+    text-align: right; }
+  .container table tbody tr td {
+    width: 50%; }
+
+.container .pick-button {
+  visibility: hidden; }
+
+@media (max-width: 991px) {
+  .container header.row div h1 {
+    text-align: center; }
+  .container button {
+    height: 50px; } }
+
+/*# sourceMappingURL=style.css.map */
