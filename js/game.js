@@ -13,9 +13,13 @@ var player = {
 var round = 0;
 var buttons = document.getElementsByClassName("pick-button");
 
-// Fix all display block with this rule
 var displayBlocks = {
-	playerName:document.getElementById('playerName')
+	playerName: document.getElementById("playerName"),
+	playerScore: document.getElementById("playerScore"),
+	computerScore: document.getElementById("computerScore"),
+	computerPick: document.getElementById("computerPick"),
+	playerPick: document.getElementById("playerPick"),
+	gameResult: document.getElementById("gameResult")
 };
 
 function newGame() {
@@ -31,8 +35,8 @@ function newGame() {
 	}
 
 	displayBlocks.playerName.innerHTML = player.name;
-	document.getElementById("playerScore").innerHTML = player.score;
-	document.getElementById("computerScore").innerHTML = computer.score;
+	displayBlocks.playerScore.innerHTML = player.score;
+	displayBlocks.computerScore.innerHTML = computer.score;
 
 	for (var i = 0; i < buttons.length; i++) {
 		buttons[i].style.visibility = 'visible';
@@ -57,53 +61,46 @@ function checkResult() {
 	var gameResult;
 	if (player.pick === computer.pick) {
 		gameResult = "tie!";
-	}
-	else if (player.pick === "rock") {
+	} else if (player.pick === "rock") {
 		if (computer.pick === "scissors") {
 			player.score++;
-			document.getElementById("playerScore").innerHTML = player.score;
+			displayBlocks.playerScore.innerHTML = player.score;
 			gameResult = "Player wins!";
-		}
-		else if (computer.pick === "paper") {
+		} else if (computer.pick === "paper") {
 			computer.score++;
-			document.getElementById("computerScore").innerHTML = computer.score;
+			displayBlocks.computerScore.innerHTML = computer.score;
 			gameResult = "Computer wins!";
 		}
-	}
-	else if (player.pick === "paper") {
+	} else if (player.pick === "paper") {
 		if (computer.pick === "rock") {
 			player.score++;
-			document.getElementById("playerScore").innerHTML = player.score;
+			displayBlocks.playerScore.innerHTML = player.score;
 			gameResult = "Player wins!";
-		}
-		else if (computer.pick === "scissors") {
+		} else if (computer.pick === "scissors") {
 			computer.score++;
-			document.getElementById("computerScore").innerHTML = computer.score;
+			displayBlocks.computerScore.innerHTML = computer.score;
 			gameResult = "Computer wins!";
 		}
-	}
-	else if (player.pick === "scissors") {
+	} else if (player.pick === "scissors") {
 		if (computer.pick === "paper") {
 			player.score++;
-			document.getElementById("playerScore").innerHTML = player.score;
+			displayBlocks.playerScore.innerHTML = player.score;
 			gameResult = "Player wins!";
-		}
-		else if (computer.pick === "rock") {
+		} else if (computer.pick === "rock") {
 			computer.score++;
-			document.getElementById("computerScore").innerHTML = computer.score;
+			displayBlocks.computerScore.innerHTML = computer.score;
 			gameResult = "Computer wins!";
 		}
 	}
 
-	document.getElementById("computerPick").innerHTML = computer.pick;
-	document.getElementById("playerPick").innerHTML = player.pick;
-	document.getElementById("gameResult").innerHTML = gameResult;
+	displayBlocks.computerPick.innerHTML = computer.pick;
+	displayBlocks.playerPick.innerHTML = player.pick;
+	displayBlocks.gameResult.innerHTML = gameResult;
 
 	if ((player.score >= 10) || (computer.score >= 10)) {
 		if (player.score > computer.score) {
 			alert("\nPlayer wins the game!\n");
-		}
-		else {
+		} else {
 			alert("\nComputer wins the game!\n");
 		}
 

@@ -25,7 +25,7 @@
 .container .pick-button {
   visibility: hidden; }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .container header.row div h1 {
     text-align: center; }
   .container button {
